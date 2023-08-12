@@ -1,10 +1,7 @@
 <template>
     <div class="card_container">
-        <span class="material-symbols-outlined" @click="favoritarMed(id)">
+        <span class="material-symbols-outlined span-favorito " @click="favoritarMed(id)">
             favorite
-        </span>
-        <span class="material-symbols-outlined" v-if="favorito">
-            heart_check
         </span>
         <img src="https://dmvfarma.vtexassets.com/arquivos/ids/196865/caixa-medicamento-2021.png?v=637695586068000000"
             alt="Imagem do medicamento" />
@@ -13,6 +10,8 @@
             <p>Laboratório: {{ laboratorio }}</p>
             <p>Preço: {{ preco }}</p>
         </div>
+
+        <p class="favorito" v-if="favorito == true">Favorito</p>
     </div>
 </template>
 
@@ -24,9 +23,10 @@ export default {
             // Emitir o evento 'favoritar' para o pai com o ID do medicamento
             this.$emit('favoritar', id);
         },
-    },
+    }
 }
 </script>
+
 
 <style scoped>
 .card_container {
@@ -41,7 +41,7 @@ export default {
     border: 2px solid black;
 }
 
-.card_container span {
+.card_container .span-favorito {
     text-align: right;
     margin-right: 20px;
     margin-top: 10px;
@@ -59,5 +59,11 @@ export default {
     text-align: center;
     margin-top: 5px;
     margin-bottom: 10px;
+}
+
+.favorito {
+    text-align: center;
+    font-size: 26px;
+    color: green;
 }
 </style>

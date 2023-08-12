@@ -2,10 +2,18 @@
     <Cabecalho />
     <FormularioMedicamento @submit="AdicionarMedicamento" />
     <div class="container">
-        <CardMedicamento v-if="!!todosOsMedicamento" v-for="medicamento in todosOsMedicamento" :key="medicamento.id"
-            @favoritar="favoritaMed" :nome="medicamento.nome" :laboratorio="medicamento.laboratorio"
-            :preco="medicamento.preco" :id="medicamento.id" />
-    </div>
+            <CardMedicamento
+                v-if="!!todosOsMedicamento"
+                v-for="medicamento in todosOsMedicamento"
+                :key="medicamento.id"
+                @favoritar="favoritaMed"
+                :nome="medicamento.nome"
+                :laboratorio="medicamento.laboratorio"
+                :preco="medicamento.preco"
+                :favorito="medicamento.favorito"
+                :id="medicamento.id"
+            />
+        </div>
 </template>
 
 <script>
@@ -60,7 +68,6 @@ export default {
                 return item;
             });
         },
-
     }
 }
 </script>
